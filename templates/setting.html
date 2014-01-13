@@ -1,0 +1,49 @@
+<div class='row'>
+    <h1>Update your setting</h1>
+    <form name="form" ng-submit="updateSetting()">
+        <fieldset>
+            <legend>Update setting</legend>
+            
+            <div class="row">
+                <div class="small-8 colums">
+                    <label>Name (English only)</label>
+                    <input type="text" placeholder="Name" name="name" ng-model="setting.name" ng-minlength=3 ng-maxlength=20 ng-pattern="/^[a-zA-Z]+$/" required>
+                    <span ng-show="form.name.$error.required">กรุณากรอก</span>
+                    <span ng-show="form.name.$error.minlength">กรอกขั้นต่ำ 3 ตัว</span>
+                    <span ng-show="form.name.$error.maxlength">กรอกไม่เกิน 20 ตัว</span>                    
+                </div>
+            </div>
+            
+             <div class="row">
+                <div class="small-8 colums">
+                    <label>Email</label>
+                    <input type="text" placeholder="Email" name="email" ng-model="setting.email" required>
+                    
+                    <span ng-show="form.email.$error.required">กรุณากรอก</span>
+                    
+                    
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="small-8 colums">
+                    <label>Age</label>
+                    <input type="text" placeholder="Age" name="age" ng-model="setting.age" min=3 max=199 required>
+                    
+                    <span ng-show="form.age.$error.required">กรุณากรอก</span>
+                    <span ng-show="form.age.$error.min">กรอกขั้นต่ำ 10 ขวบ</span>
+                    <span ng-show="form.age.$error.max">กรอกไม่เกิน 199 ปี</span>       
+                    
+                </div>
+            </div>
+            
+            <div class='row'>
+                <div class='push-9 small-3'>
+                    <input type="submit" class='button' value="UPDATE" ng-disabled="form.$dirty && form.$invalid">
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+{{ setting }}
